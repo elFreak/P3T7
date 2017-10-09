@@ -53,9 +53,14 @@
 \section{Funktionsprinzip}
 In der Graphik wird unser Funktionsprinzip dargestellt.
 \\
+
+\begin{figure}[htbp] 
+  \centering
 \includegraphics[scale=0.45]{P3T7-Blockdiagramm.png}
-\\
-\\
+  \caption{}
+  \label{fig:Bild1}
+\end{figure}
+
 Die mit grün gekennzeichneten Felder werden selber designet während, die violett eingefärbten Felder direkt eingekauft werden.\\
 Der orange Rahmen stellt das Gehäuse des Gerätes dar, die weissen Felder stehen für den jeweiligen Pol des Steckers.
 
@@ -79,13 +84,19 @@ Der orange Rahmen stellt das Gehäuse des Gerätes dar, die weissen Felder stehe
 
 \section{Technische Daten}
 
- \includegraphics[scale=0.45]{Komp-1.jpg}
+ \includegraphics[scale=0.45]{Komp-1.png}
 
 \subsection{Messung}
 Für die Spannungsmessung wird ein Spannungteiler mit dem Verhältnis 100 zu 0,75 benötigt. Die Spannung muss im Bereich von 0-5V liegen. Die Spannung über dem kleineren Widerstand ($\pm 2,42V$) wird mit einem Addierer in den gewünschten Messbereich verschoben.\\
 Für die Strommessung wird ein Messshunt verwendet.
 \subsection{Messaufbereitung}
-\includegraphics[scale=0.9]{Block-Messung.png}\\
+\begin{figure}[htbp] 
+  \centering
+\includegraphics[scale=0.9]{Block-Messung.png}
+  \caption{}
+  \label{fig:Bild1}
+\end{figure}
+
 Die Aufbereitung des Signals soll in drei Stufen erfolgen. In einem ersten Schritt soll das Signal mithilfe einer Instrumenten-Verstärker auf maximal +/- 2.5V verstärkt werden. Danach wird im Addierer das Signal auf das Potential des Controllers gehoben. Dies wird mit einer Einkoppelung realisiert. Im Filter werden noch die unerwünschten Oberwellen oberhalb von 5kHz herausgefiltert. Da der Controller voraussichtlich eine 10 Bit Auflösung haben wird, wird der Messberiech in zwei Bereiche aufgeteilt, die entsprechend auf ihren Messbereich angepasst werden.
 \subsection{Datenspeicherung}
 Um Energiespitzen mit einer harmonischen Frequenz von 5kHz messen zu können, addieren wir den Energieverbrauch von 0.1ms über 10s auf und speichern diesen Wert im Festspeicher. Es sind immer die Daten der letzten sieben Tagen im Festspeicher vorhanden, welche über die Drahtlosschnittstelle ausgelesen werden können.
