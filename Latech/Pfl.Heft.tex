@@ -66,8 +66,9 @@ Der orange Rahmen stellt das Gehäuse des Gerätes dar, die weissen Felder stehe
 \item Durch ein Kunststoffgehäuse muss die Schutzart IP 20 gewährleistet werden.
 \item Wenn das Gerät nicht der Schutzklasse 2 entspricht muss eine Potenzialtrennung vorhanden sein.
 \item Die Messung muss für Û=325V und Î=15A (Netzspannung) ausgelegt sein.
+\item Messbereich bis 1A $\pm2W$; bis 10A $\pm 20W$
 \item Harmonische Schwingungen bis 5kHz müssen detektiert werden.
-\item Der Log Intervall der Leistung muss$\leq \ $10s sein.
+\item Der Log Intervall der Leistung muss $\leq \ $10s sein.
 
 \item Firmware für die Signalwandlung, Leistungsberechnung, Datenspeicherung und den Transfer zum Empfangsgerät.
 \item Es muss eine Software mitgeliefert werden, welche den Empfang und die Darstellung des Leistungsgerätes sicherstellt. 
@@ -81,24 +82,25 @@ Der orange Rahmen stellt das Gehäuse des Gerätes dar, die weissen Felder stehe
  \includegraphics[scale=0.45]{Komp-1.jpg}
 
 \subsection{Messung}
-Für die Spannungsmessung wird ein Spannungteiler mit dem Verhältnis 100 zu 0,75 benötigt. Die Spannung muss im Bereich von 0-5V liegen. Die Spannung über dem kleineren Widerstand ($\pm 2,42V$) über einen Addierer in den gewünschten Bereich verschoben.\\
+Für die Spannungsmessung wird ein Spannungteiler mit dem Verhältnis 100 zu 0,75 benötigt. Die Spannung muss im Bereich von 0-5V liegen. Die Spannung über dem kleineren Widerstand ($\pm 2,42V$) wird mit einem Addierer in den gewünschten Messbereich verschoben.\\
 Für die Strommessung wird ein Messshunt verwendet.
 \subsection{Messaufbereitung}
 \includegraphics[scale=0.9]{Block-Messung.png}\\
-Die Aufbereitung des Signals soll in drei Stufen erfolgen. In einem ersten Schritt soll das Signal mithilfe einer Instrument-Verstärkerschaltung auf maximal +/- 2.5V verstärkt werden. Danach wird im Addierer das Signal auf das Potential des Controllers gehoben. Dies wird mit einer Einkoppelung realisiert. Im Filter werden noch die unerwünschten Oberwellen oberhalb von 5kHz herausgefiltert. Da der Controller voraussichtlich eine 10 Bit Auflösung haben wird, wird der Messberiech in zwei Bereiche aufgeteilt, die entsprechend auf ihren Messbereich angepasst werden.
-
-\subsection{Datenübertragung}
-Für die Drahtlosübertragung werden wir ein Bluetoothmodul verwenden. Dafür bevorzugen wir im Moment das \glqq Seriell Protokoll Profil\grqq(SPP). Mit diesem Profil wird über Bluetooth eine serielle RS232 Schnittstelle aufgebaut, mit welcher wir mit maximal 115'200 bps erreichen können.\\ 
-Wenn wir somit die Daten übertragen, können wir bei einer maximalen Übertragungsdauer von zehn Sekunden maximal 20 Bit alle 10 Sekunden abspeichern. Zudem haben wir für die Lifeübertragung 45 Bit Daten alle 0,5 Millisekunden zu Verfügung. Dies sollte für unsere Anforderungen ausreichen.
-
-
+Die Aufbereitung des Signals soll in drei Stufen erfolgen. In einem ersten Schritt soll das Signal mithilfe einer Instrumenten-Verstärker auf maximal +/- 2.5V verstärkt werden. Danach wird im Addierer das Signal auf das Potential des Controllers gehoben. Dies wird mit einer Einkoppelung realisiert. Im Filter werden noch die unerwünschten Oberwellen oberhalb von 5kHz herausgefiltert. Da der Controller voraussichtlich eine 10 Bit Auflösung haben wird, wird der Messberiech in zwei Bereiche aufgeteilt, die entsprechend auf ihren Messbereich angepasst werden.
 \subsection{Datenspeicherung}
 Um Energiespitzen mit einer harmonischen Frequenz von 5kHz messen zu können, addieren wir den Energieverbrauch von 0.1ms über 10s auf und speichern diesen Wert im Festspeicher. Es sind immer die Daten der letzten sieben Tagen im Festspeicher vorhanden, welche über die Drahtlosschnittstelle ausgelesen werden können.
+
+\subsection{Datenübertragung}
+Für die Drahtlosübertragung werden wir ein Bluetoothmodul verwenden. Dafür bevorzugen wir im Moment das \glqq Seriell Protokoll Profil\grqq(SPP). Mit diesem Profil wird über Bluetooth eine serielle RS232 Schnittstelle aufgebaut, mit welcher wir maximal 115'200 bps erreichen können.\\ 
+Wenn wir somit die Daten der gespeicherten sieben Tage übertragen, können wir bei einer maximalen Übertragungsdauer von zehn Sekunden maximal 20 Bit alle 10 Sekunden im Festspeicher abspeichern. Zudem haben wir für die Lifeübertragung 45 Bit Daten alle 0,5 Millisekunden zu Verfügung. Dies sollte für unsere Anforderungen ausreichen.
+
+
+
 
 \subsection{Soft- und Firmware}
 Zur Visualisierung und Auswertung der Messdaten wird eine Software auf der Basis von Java entwickelt. Diese Software erlaubt es, sich mit dem Gerät zu Verbinden und die gespeicherten Messdaten abzurufen. Ausserdem erlaubt sie die Echtzeit-Visualisierung der Leistungsmessung. 
 \\
-Die Firmware des u-Controllers managt die Speicherung und den Austausch der Messdaten. Die Rohdaten der Messung werden im Stack zwischengespeichert und alle (Zahl ergänzen) gemittelt. Dieser Mittelwert wird zusammen mit einem Zeitstämpel im Festspeicher abgelegt. Beim Datenaustausch mit der PC-Software regelt die Firmware den Lese- und Schreibzugriff auf den Festspeicher und stellt die synchronität der Daten sicher. 
+Die Firmware des u-Controllers managet die Speicherung und den Austausch der Messdaten. Die Messdaten werden zusammen mit einem Zeitstempel im Festspeicher abgelegt. Beim Datenaustausch mit der PC-Software regelt die Firmware den Lese- und Schreibzugriff auf den Festspeicher und stellt die Synchronität der Daten sicher. 
 
 
 \end{document}
