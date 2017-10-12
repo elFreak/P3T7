@@ -51,7 +51,7 @@
 
 
 \section{Funktionsprinzip}
-In der Graphik wird unser Funktionsprinzip dargestellt.
+In der Grafik wird unser Funktionsprinzip dargestellt.
 \\
 
 \begin{figure}[htbp] 
@@ -61,7 +61,7 @@ In der Graphik wird unser Funktionsprinzip dargestellt.
   \label{fig:Bild1}
 \end{figure}
 
-Die mit grün gekennzeichneten Felder werden selber designet während, die violett eingefärbten Felder direkt eingekauft werden.\\
+Die mit grün gekennzeichneten Felder werden selber designt während, die violett eingefärbten Felder direkt eingekauft werden.\\
 Der orange Rahmen stellt das Gehäuse des Gerätes dar, die weissen Felder stehen für den jeweiligen Pol des Steckers.
 
 \newpage
@@ -88,7 +88,7 @@ Der orange Rahmen stellt das Gehäuse des Gerätes dar, die weissen Felder stehe
  \includegraphics[scale=0.45]{Komp-1.png}
 
 \subsection{Messung}
-Für die Spannungsmessung wird ein Spannungteiler mit dem Verhältnis 1 zu 7,5 $\cdot$ $10^{-3}$. benötigt. Die Spannung muss im Bereich von 0-5V liegen. Die Spannung über dem kleineren Widerstand ($\pm 2,42V$) wird mit einem Addierer in den gewünschten Messbereich verschoben.\\
+Für die Spannungsmessung wird ein Spannungsteiler mit dem Verhältnis 1 zu 7,5 $\cdot$ $10^{-3}$. benötigt. Die Spannung muss im Bereich von 0-5V liegen. Die Spannung über dem kleineren Widerstand ($\pm 2,42V$) wird mit einem Addierer in den gewünschten Messbereich verschoben.\\
 Für die Strommessung wird ein Messshunt verwendet.
 \subsection{Messaufbereitung}
 \begin{figure}[htbp] 
@@ -98,7 +98,7 @@ Für die Strommessung wird ein Messshunt verwendet.
   \label{fig:Bild1}
 \end{figure}
 
-Die Aufbereitung des Signals soll in drei Stufen erfolgen. In einem ersten Schritt soll das Signal mithilfe einer Instrumenten-Verstärker auf maximal +/- 2.5V verstärkt werden. Danach wird im Addierer das Signal auf das Potential des Controllers gehoben. Dies wird mit einer Einkoppelung realisiert. Im Filter werden noch die unerwünschten Oberwellen oberhalb von 5kHz herausgefiltert. Da der Controller voraussichtlich eine 10 Bit Auflösung haben wird, wird der Messberiech in zwei Bereiche aufgeteilt, die entsprechend auf ihren Messbereich angepasst werden.
+Die Aufbereitung des Signals soll in drei Stufen erfolgen. In einem ersten Schritt soll das Signal mithilfe einer Instrumenten-Verstärker auf maximal +/- 2.5V verstärkt werden. Danach wird im Addierer das Signal auf das Potenzial des Controllers gehoben. Dies wird mit einer Einkoppelung realisiert. Im Filter werden noch die unerwünschten Oberwellen oberhalb von 5kHz herausgefiltert. Da der Controller voraussichtlich eine 10 Bit Auflösung haben wird, wird der Messbereich in zwei Bereiche aufgeteilt, die entsprechend auf ihren Messbereich angepasst werden.
 \subsection{Datenspeicherung}
 Um Energiespitzen mit einer harmonischen Frequenz von 5kHz messen zu können, addieren wir den Energieverbrauch von 0.1ms über 10s auf und speichern diesen Wert im Festspeicher. Es sind immer die Daten der letzten sieben Tagen im Festspeicher vorhanden, welche über die Drahtlosschnittstelle ausgelesen werden können.
 
@@ -112,7 +112,7 @@ Wenn wir somit die Daten der gespeicherten sieben Tage übertragen, können wir 
 \subsection{Soft- und Firmware}
 Zur Visualisierung und Auswertung der Messdaten wird eine Software auf der Basis von Java entwickelt. Diese Software erlaubt es, sich mit dem Gerät zu Verbinden und die gespeicherten Messdaten abzurufen. Ausserdem erlaubt sie die Echtzeit-Visualisierung der Leistungsmessung. 
 \\
-Die Firmware des u-Controllers managet die Speicherung und den Austausch der Messdaten. Die Messdaten werden zusammen mit einem Zeitstempel im Festspeicher abgelegt. Beim Datenaustausch mit der PC-Software regelt die Firmware den Lese- und Schreibzugriff auf den Festspeicher und stellt die Synchronität der Daten sicher. 
+Die Firmware des u-Controllers managt die Speicherung und den Austausch der Messdaten. Die Messdaten werden zusammen mit einem Zeitstempel im Festspeicher abgelegt. Beim Datenaustausch mit der PC-Software regelt die Firmware den Lese- und Schreibzugriff auf den Festspeicher und stellt die Synchronität der Daten sicher. 
 
 
 \end{document}
